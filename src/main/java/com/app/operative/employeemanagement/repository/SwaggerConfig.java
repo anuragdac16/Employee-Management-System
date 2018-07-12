@@ -1,10 +1,12 @@
 package com.app.operative.employeemanagement.repository;
 
 
-import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
+
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -28,6 +30,16 @@ public class SwaggerConfig {
                 .build();
     }
 
+    
+//    @ApiResponses(value= {
+//    		@ApiResponse(code=200 , message="ok with data"),
+//    		@ApiResponse(code=401 , message="You are not authenticated"),
+//    		@ApiResponse(code=400 , message="Bad Request"),
+//    		@ApiResponse(code=404 , message="Not Found"),
+//    		@ApiResponse(code=500 , message="Internal server error")})
+    
+    
+    
     // Describe your apis
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()

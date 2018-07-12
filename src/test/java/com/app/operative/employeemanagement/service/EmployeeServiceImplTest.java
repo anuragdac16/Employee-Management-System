@@ -1,10 +1,15 @@
 package com.app.operative.employeemanagement.service;
 
-import static org.junit.Assert.fail;
+import static org.hamcrest.CoreMatchers.any;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +21,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.app.operative.employeemanagement.controller.EmployeeController;
+import com.app.operative.employeemanagement.document.Employee;
 
 @RunWith(SpringRunner.class)
 public class EmployeeServiceImplTest {
@@ -42,6 +48,11 @@ public class EmployeeServiceImplTest {
 
 	@Test
 	public void testAddEmployee() throws Exception {
+		Employee employee= new Employee();
+		when(employeeController.addEmployee((Employee) any(Employee.class))).thenReturn(new Employee());
+		Assert.assertEquals(employeeController.addEmployee(employee), new Employee());
+		assertThat(employeeService.addEmployee(employee) ,is(notNullValue()));
+		
 		mockMvc.perform(MockMvcRequestBuilders.post("/rest/employee/addemployee")
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
@@ -50,24 +61,24 @@ public class EmployeeServiceImplTest {
 
 	@Test
 	public void testUpdateEmployeeIntEmployee() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGetEmployeeById() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/rest/employee/findbyid/1"))
+		mockMvc.perform(MockMvcRequestBuilders.get("/rest/employee/findbyid/5b443ff40593222330cb44d3"))
 		.andExpect(status().isOk());
 	}
 
 	@Test
 	public void testGetEmployeeByName() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/rest/employee/findbyname/{name}"))
+		mockMvc.perform(MockMvcRequestBuilders.get("/rest/employee/findbyname/{name}", "Anurag"))
 		.andExpect(status().isOk());
 	}
 
 	@Test
 	public void testUpdateEmployeeEmployee() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 	@Test

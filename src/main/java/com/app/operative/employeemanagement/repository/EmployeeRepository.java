@@ -6,4 +6,7 @@ import com.app.operative.employeemanagement.document.Employee;
 
 public interface EmployeeRepository extends MongoRepository<Employee, String>{
 
+	/*public Employee findByName(String name);
+
+	public Optional<Employee> findById(String id);*/
 }
