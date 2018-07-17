@@ -1,28 +1,21 @@
 package com.app.operative.employeemanagement.exception;
 
-public class EmployeeException extends Exception {
+
+public class EmployeeException extends RuntimeException {
+
+
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String message;
 
 	public EmployeeException() {
 
 	}
 
-	public EmployeeException(String message) {
-		this.message= message;
-	}
-
-	public String getMessage()
-	{
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
+	public EmployeeException (String message) {
+		super(message);
 	}
 
 }
