@@ -36,7 +36,7 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/findbyname/{name}")
-	public Employee getEmployeeByName(@PathVariable String name) {
+	public Employee getEmployeeByName(@PathVariable(value = "name") String name) {
 		logger.info("Retriving employee record by using employee name -{} from controller", name);
 		return controllerAdvice.getEmployeeByName(name);
 	}
@@ -54,7 +54,7 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteemployee/{id}")
-	public void deleteEmployee(@PathVariable String id) {
+	public void deleteEmployee(@PathVariable(value = "id") String id) {
 		logger.info("Deleting employee by using id from controller");
 		controllerAdvice.deleteEmployee(id);
 	}

@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.app.operative.employeemanagement.controller.EmployeeController;
@@ -14,6 +15,7 @@ import com.app.operative.employeemanagement.exception.EmployeeException;
 import com.app.operative.employeemanagement.repository.EmployeeRepository;
 
 @Service
+@Component
 public class EmployeeServiceImpl implements EmployeeService {
 
 	private static final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
